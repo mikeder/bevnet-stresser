@@ -11,10 +11,6 @@ use crate::shared::{PlayerColor, Position};
 #[derive(Component, Serialize, Deserialize, Clone, Debug, PartialEq)]
 pub struct PlayerId(pub ClientId);
 
-#[derive(Component, Deserialize, Serialize, Clone, Debug, PartialEq)]
-// Marker component
-pub struct CircleMarker;
-
 // Channels
 
 #[derive(Channel)]
@@ -47,9 +43,6 @@ impl Plugin for ProtocolPlugin {
         app.add_prediction::<PlayerColor>(ComponentSyncMode::Once);
         app.add_interpolation::<PlayerColor>(ComponentSyncMode::Once);
 
-        app.register_component::<CircleMarker>(ChannelDirection::ServerToClient);
-        app.add_prediction::<CircleMarker>(ComponentSyncMode::Once);
-        app.add_interpolation::<CircleMarker>(ComponentSyncMode::Once);
         // channels
         app.add_channel::<Channel1>(ChannelSettings {
             mode: ChannelMode::OrderedReliable(ReliableSettings::default()),
