@@ -1,0 +1,12 @@
+[package]
+name = "bevnet-stresser"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "0.13.2"
+derive_more = "0.99.17"
+lightyear = "0.14.1"
+serde = "1.0.199"
